@@ -159,6 +159,8 @@
       display: flex;
       gap: 1rem;
       margin-top: 1rem;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
     }
     
     .btn {
@@ -200,6 +202,8 @@
       margin-top: 3rem;
       display: flex;
       gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
     }
     
     .social-link {
@@ -764,7 +768,9 @@
     </div>
     <div class="about-content">
       <div class="about-image">
-        <img src="/api/placeholder/600/600" alt="Ameya Bodhani">
+        <!-- <img src="/api/placeholder/600/600" alt="Ameya Bodhani"> -->
+        <img src="https://fakeimg.pl/600x600/ffffff/3160e0?text=Ameya&font=bebas">
+      
       </div>
       <div class="about-text">
         <p>I'm a passionate Full Stack Developer with expertise in Java and enterprise applications, currently working at the Centre for Development of Advanced Computing (CDAC) Pune in the eGovernance group.</p>
@@ -829,9 +835,7 @@
           <h3>Databases & Storage</h3>
           <div class="skill-items">
             <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">Oracle</span>
-            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">MySQL Workbench</span>
           </div>
         </div>
         <div class="skill-category">
@@ -843,6 +847,14 @@
             <span class="skill-tag">Terraform</span>
             <span class="skill-tag">Apache Tomcat</span>
             <span class="skill-tag">Jasper Reports</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Testing</h3>
+          <div class="skill-items">
+            <span class="skill-tag">JUnit</span>
+            <span class="skill-tag">SonarQube</span>
+            <span class="skill-tag">BurrpSuite</span>
           </div>
         </div>
         <div class="skill-category">
@@ -875,70 +887,70 @@
     <div class="projects-container">
       <div class="projects-grid">
         <div class="project-card">
-          <img src="/api/placeholder/400/200" alt="WAMIS Project" class="project-image">
+          <!-- <img src="https://via.placeholder.com/400x200.png?text=WAMIS+Project" alt="WAMIS Project" class="project-image">        -->
           <div class="project-content">
             <h3 class="project-title">WAMIS (Works and Accounts Management Information System)</h3>
             <div class="project-tags">
               <span class="project-tag">Java</span>
               <span class="project-tag">Spring Boot</span>
               <span class="project-tag">MySQL</span>
+              <span class="project-tag">Jasper Reports</span>
             </div>
             <p class="project-description">An e-governance project for automating public works billing and accounts processes, serving government departments.</p>
             <div class="project-links">
-              <a href="https://github.com/ameyabodhani/wamis" target="_blank" class="project-link project-link-primary">View Project</a>
+              <a href="https://wamis-odisha.gov.in/wamis/login.do" target="_blank" class="project-link project-link-primary">View Website</a>
               <a href="#contact" class="project-link project-link-secondary">Learn More</a>
             </div>
           </div>
         </div>
         <div class="project-card">
-          <img src="/api/placeholder/400/200" alt="Enterprise Java Application" class="project-image">
+          <!-- <img src="/api/placeholder/400/200" alt="Enterprise Java Application" class="project-image"> -->
           <div class="project-content">
             <h3 class="project-title">Enterprise Java Application</h3>
             <div class="project-tags">
               <span class="project-tag">Java</span>
-              <span class="project-tag">Hibernate</span>
-              <span class="project-tag">JSP</span>
+              <span class="project-tag">SpringBoot</span>
+              <span class="project-tag">Angular</span>
             </div>
-            <p class="project-description">A scalable enterprise application with modular architecture, secure authentication, and reporting functionality.</p>
+            <p class="project-description"> A robust, cloud‑ready management system tailored for schools in Eastern Maharashtra, empowering teachers and administrative staff with seamless tools for works coordination, financial management, and real‑time reporting.
+            </p>
             <div class="project-links">
-              <a href="#" target="_blank" class="project-link project-link-primary">View Demo</a>
+              <a href="https://dnyandeep.azurewebsites.net/" target="_blank" class="project-link project-link-primary">View Website</a>
               <a href="#contact" class="project-link project-link-secondary">Learn More</a>
             </div>
           </div>
         </div>
         <div class="project-card">
-          <img src="/api/placeholder/400/200" alt="Video Production" class="project-image">
+          <!-- <img src="/api/placeholder/400/200" alt="Video Production" class="project-image"> -->
           <div class="project-content">
             <h3 class="project-title">Professional Video Editing</h3>
             <div class="project-tags">
               <span class="project-tag">Adobe Premiere Pro</span>
-              <span class="project-tag">Video Editing</span>
+              <span class="project-tag">Final Cut Pro</span>
             </div>
             <p class="project-description">Professional video editing services for corporate videos, tutorials, marketing content, and social media.</p>
             <div class="project-links">
-              <a href="#" target="_blank" class="project-link project-link-primary">View Portfolio</a>
+              <a href="https://www.imdb.com/name/nm10618302/" target="_blank" class="project-link project-link-primary">View Portfolio</a>
               <a href="#contact" class="project-link project-link-secondary">Hire Me</a>
             </div>
           </div>
         </div>
-        <div class="project-card">
-          <img src="/api/placeholder/400/200" alt="Cloud Infrastructure" class="project-image">
+        <!-- <div class="project-card">
+          <!-- <img src="/api/placeholder/400/200" alt="Cloud Infrastructure" class="project-image">
           <div class="project-content">
             <h3 class="project-title">Cloud Infrastructure Setup</h3>
             <div class="project-tags">
               <span class="project-tag">AWS</span>
-              <span class
-
               <span class="project-tag">Docker</span>
               <span class="project-tag">Terraform</span>
             </div>
             <p class="project-description">Designed and implemented scalable cloud infrastructure for enterprise applications with automation and monitoring.</p>
             <div class="project-links">
-              <a href="#" class="project-link project-link-primary">Case Study</a>
+              <a href="#contact" class="project-link project-link-primary">Case Study</a>
               <a href="#contact" class="project-link project-link-secondary">Discuss Project</a>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
