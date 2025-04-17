@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ameya Bodhani - Full Stack Developer, Software Engineer, Freelancer, and Video Editor">
+  <meta name="keywords" content="Ameya, Full Stack Developer, Java Engineer, Software Engineer, Freelancer, Video Editor, CDAC Pune">
+  <meta name="author" content="Ameya Bodhani">
+  <title>Ameya Bodhani | Software Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #64748b;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --accent: #06b6d4;
+      --gray-light: #f1f5f9;
+      --success: #10b981;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      color: var(--dark);
+      background-color: var(--light);
+      line-height: 1.6;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: rgba(255, 255, 255, 0.95);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    
+    /* Hero Section */
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+    }
+    
+    #hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+    
+    #hero h1::after {
+      content: '';
+      position: absolute;
+      width: 70%;
+      height: 4px;
+      bottom: -10px;
+      left: 15%;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .hero-tagline {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 2rem;
+    }
+    
+    .availability-badge {
+      background-color: var(--success);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+    
+    .social-links {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .social-link {
+      font-size: 1.3rem;
+      color: var(--secondary);
+      transition: all 0.3s;
+    }
+    
+    .social-link:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    /* About Section */
+    section {
+      padding: 6rem 2rem;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      bottom: -10px;
+      left: 0;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    
+    #about {
+      background-color: var(--gray-light);
+    }
+    
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .about-text {
+      flex: 2;
+      min-width: 300px;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .about-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .highlight-item {
+      flex: 1;
+      min-width: 200px;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+    
+    .highlight-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .highlight-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .highlight-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Skills Section */
+    #skills {
+      background-color: white;
+    }
+    
+    .skills-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    
+    .skill-category {
+      flex: 1;
+      min-width: 250px;
+      max-width: 350px;
+      background-color: var(--gray-light);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+    
+    .skill-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .skill-category h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .skill-category h3::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary);
+      bottom: 0;
+      left: 0;
+      border-radius: 2px;
+    }
+    
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    
+    .skill-tag {
+      background-color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-block;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+    
+    .skill-tag:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(37, 99, 235, 0.2);
+    }
+    
+    /* Projects Section */
+    #projects {
+      background-color: var(--gray-light);
+    }
+    
+    .projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .project-tag {
+      background-color: var(--gray-light);
+      font-size: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+    }
+    
+    .project-description {
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .project-link {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .project-link-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .project-link-primary:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .project-link-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    
+    .project-link-secondary:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    /* Contact Section */
+    #contact {
+      background-color: white;
+    }
+    
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .contact-item {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+      border-radius: 10px;
+      background-color: var(--gray-light);
+      transition: transform 0.3s;
+    }
+    
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .contact-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-link {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .contact-link:hover {
+      color: var(--primary);
+    }
+    
+    .contact-form {
+      background-color: var(--gray-light);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .submit-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+    
+    .footer-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .footer-social-link {
+      color: #cbd5e1;
+      font-size: 1.3rem;
+      transition: all 0.3s;
+    }
+    
+    .footer-social-link:hover {
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .footer-copyright {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav ul li {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      #hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-tagline {
+        font-size: 1.2rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">Ameya.dev</div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul id="navMenu">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm Ameya Bodhani</h1>
+      <p class="hero-tagline">Full Stack Developer | Java Engineer | Video Editor</p>
+      <div class="availability-badge">
+        <i class="fas fa-circle"></i> Available for new Java & Software Engineering opportunities
+      </div>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="#projects" class="btn btn-outline">View My Work</a>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/ameyabodhani" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ameyabodhani/" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:ameyabodhani175@gmail.com" class="social-link">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-header">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Get to know who I am and what I do</p>
+    </div>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="/api/placeholder/600/600" alt="Ameya Bodhani">
+      </div>
+      <div class="about-text">
+        <p>I'm a passionate Full Stack Developer with expertise in Java and enterprise applications, currently working at the Centre for Development of Advanced Computing (CDAC) Pune in the eGovernance group.</p>
+        <p>At CDAC, I contribute to impactful projects like WAMIS, helping automate public works processes and improving government service delivery through technology. My work involves building robust, scalable applications that serve thousands of users.</p>
+        <p><strong>I'm currently open to new opportunities in Java and Software Engineering</strong>, where I can leverage my skills to build innovative solutions and contribute to meaningful projects.</p>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="highlight-title">Software Engineering</h3>
+            <p>Designing and building enterprise-grade applications with Java and related technologies.</p>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3 class="highlight-title">Full Stack Development</h3>
+            <p>End-to-end development from database design to frontend implementation.</p>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <i class="fas fa-video"></i>
+            </div>
+            <h3 class="highlight-title">Video Editing</h3>
+            <p>Professional video editing and content creation for various platforms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="section-header">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <p class="section-subtitle">The technologies and tools I work with</p>
+    </div>
+    <div class="skills-container">
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Programming Languages</h3>
+          <div class="skill-items">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Frameworks & Libraries</h3>
+          <div class="skill-items">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Struts</span>
+            <span class="skill-tag">Hibernate</span>
+            <span class="skill-tag">JSP</span>
+            <span class="skill-tag">Thymeleaf</span>
+            <span class="skill-tag">JUnit</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Databases & Storage</h3>
+          <div class="skill-items">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Oracle</span>
+            <span class="skill-tag">Redis</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Platforms</h3>
+          <div class="skill-items">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Maven</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Apache Tomcat</span>
+            <span class="skill-tag">Jasper Reports</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Cloud & DevOps</h3>
+          <div class="skill-items">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Shell Scripting</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Creative & Multimedia</h3>
+          <div class="skill-items">
+            <span class="skill-tag">Adobe Premiere Pro</span>
+            <span class="skill-tag">Video Editing</span>
+            <span class="skill-tag">Content Creation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-header">
+      <h2 class="section-title">My Projects</h2>
+      <p class="section-subtitle">Some of the projects I've worked on</p>
+    </div>
+    <div class="projects-container">
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="/api/placeholder/400/200" alt="WAMIS Project" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">WAMIS (Works and Accounts Management Information System)</h3>
+            <div class="project-tags">
+              <span class="project-tag">Java</span>
+              <span class="project-tag">Spring Boot</span>
+              <span class="project-tag">MySQL</span>
+            </div>
+            <p class="project-description">An e-governance project for automating public works billing and accounts processes, serving government departments.</p>
+            <div class="project-links">
+              <a href="https://github.com/ameyabodhani/wamis" target="_blank" class="project-link project-link-primary">View Project</a>
+              <a href="#contact" class="project-link project-link-secondary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="/api/placeholder/400/200" alt="Enterprise Java Application" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Enterprise Java Application</h3>
+            <div class="project-tags">
+              <span class="project-tag">Java</span>
+              <span class="project-tag">Hibernate</span>
+              <span class="project-tag">JSP</span>
+            </div>
+            <p class="project-description">A scalable enterprise application with modular architecture, secure authentication, and reporting functionality.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" class="project-link project-link-primary">View Demo</a>
+              <a href="#contact" class="project-link project-link-secondary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="/api/placeholder/400/200" alt="Video Production" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Professional Video Editing</h3>
+            <div class="project-tags">
+              <span class="project-tag">Adobe Premiere Pro</span>
+              <span class="project-tag">Video Editing</span>
+            </div>
+            <p class="project-description">Professional video editing services for corporate videos, tutorials, marketing content, and social media.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" class="project-link project-link-primary">View Portfolio</a>
+              <a href="#contact" class="project-link project-link-secondary">Hire Me</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="/api/placeholder/400/200" alt="Cloud Infrastructure" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">Cloud Infrastructure Setup</h3>
+            <div class="project-tags">
+              <span class="project-tag">AWS</span>
+              <span class
